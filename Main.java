@@ -2,10 +2,8 @@
 // Создать класс Car с полями brand, year и mileage.
 // - Сделать brand и year доступными только для чтения (private + getter).
 // - mileage должно изменяться только через метод drive(int km).
-import java.time.Year;
-import java.util.*;
-import java.util.Date;
-class Car {
+import java.util.Calendar;
+public class Car {
     private String brand;
     private int year;
     private int mileage;
@@ -14,10 +12,10 @@ class Car {
         this.year = year;
         this.mileage = 0;
     }
-    private String getBrand() {
+    public String getBrand() {
         return brand;
     }
-    private int getYear() {
+    public int getYear() {
         return year;
     }
     public int getMileage() {
@@ -31,11 +29,12 @@ class Car {
     public int carAge(int currentYear) {
         return currentYear - year;
     }
+}
+class CarDemo {
     public static void main(String[] args) {
         Calendar calendar = Calendar.getInstance();
-        String newLine = System.getProperty("line.separator");
         Car car = new Car("Toyota", 2020);
         car.drive(100);
-        System.out.println("Brand: " + car.getBrand() + newLine + "Year: " + car.carAge(calendar.get(Calendar.YEAR)) + newLine + "Mileage: " + car.getMileage());
+        System.out.println("Brand: " + car.getBrand() + '\n' + "Year: " + car.carAge(calendar.get(Calendar.YEAR)) + '\n' + "Mileage: " + car.getMileage());
     }
 }
